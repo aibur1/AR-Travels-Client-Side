@@ -1,0 +1,12 @@
+.chose{
+    height: 500px;
+   background-image: url(../../image/chose-bg/back.jpg);
+}
+.btn{
+    text-decoration: none;
+    
+}
+.chose_2{
+    justify-content:space-evenly;
+    align-items: center;
+}

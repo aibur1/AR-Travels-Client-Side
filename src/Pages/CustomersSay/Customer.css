@@ -1,0 +1,11 @@
+ 
+ .main{
+     background-color: rgb(250, 248, 248);
+ }
+ 
+ .review{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
