@@ -1,8 +1,6 @@
 import Home from './Pages/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import About from './Pages/About/About';
-import Contact from './Pages/Contact/Contact';
 import Tours from './Pages/Tours/Tours';
 import Login from './Pages/Login/Login';
 import AuthProvider from './context/AuthProvider';
@@ -11,6 +9,9 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import Booked from './Pages/Booked/Booked';
 import AddService from './Pages/AddService/AddService';
 import ManageOffer from './Pages/ManageOffer/ManageOffer';
+import Update from './Pages/Update/Update';
+import Header from './Pages/Header/Header';
+import Footer from './Pages/Footer/Footer';
 
 
 
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <AuthProvider>
       <Router>
+        <Header></Header>
         <Switch>
         <Route exact path="/">
           <Home></Home>
@@ -33,14 +35,11 @@ function App() {
         <PrivateRoute  path="/myorders">
           <MyOrders></MyOrders>
         </PrivateRoute>
-        <Route exact path="/about">
-          <About></About>
-        </Route>
-        <Route exact path="/contact">
-          <Contact></Contact>
-        </Route>
-        <Route path="/booking/:serviceId">
+        <PrivateRoute path="/booking/:serviceId">
           <Booked></Booked>
+        </PrivateRoute>
+        <Route path="/offers/update/:id">
+         <Update></Update>
         </Route>
         <Route path="/addService">
           <AddService></AddService>
@@ -52,7 +51,7 @@ function App() {
           <Login></Login>
         </Route>
         </Switch>
-
+      <Footer></Footer>
       </Router>
       </AuthProvider>
     </div>

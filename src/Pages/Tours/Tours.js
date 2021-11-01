@@ -12,10 +12,10 @@ const Tours = () => {
     }, [])
 
     return (
-        <div>
+        <div className="py-5">
             <div className="text-center">
                 <h3>BEST OFFERS</h3>
-                <h6 className="text-secondary">CHECK OUT OUR BEST PROMOTION TOURS</h6>
+                <h6 className="text-secondary pb-3">CHECK OUT OUR BEST PROMOTION TOURS</h6>
 
                 <Row xs={1} md={3} className="g-4">
                         {
