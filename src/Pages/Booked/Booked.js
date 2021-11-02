@@ -10,15 +10,32 @@ const Booked = () => {
     const [offer, setOffer] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/offers/${serviceId}`)
+        fetch(`https://glacial-caverns-41511.herokuapp.com/${serviceId}`)
             .then(res => res.json())
             .then(data => setOffer(data));
     }, [])
 
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useAuth();
     const onSubmit = data => {
+
+
+
+        fetch('https://glacial-caverns-41511.herokuapp.com/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.insertedId) {
+                    alert('Ordered proceed successfully')
+                    reset();
+                }
+            })
         console.log(data)
     };
     return (

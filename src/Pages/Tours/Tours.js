@@ -6,7 +6,7 @@ const Tours = () => {
     const [offers, setOffers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/offers')
+        fetch('https://glacial-caverns-41511.herokuapp.com/offers')
             .then(res => res.json())
             .then(data => setOffers(data))
     }, [])

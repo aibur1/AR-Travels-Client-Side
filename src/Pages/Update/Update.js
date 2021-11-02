@@ -6,7 +6,7 @@ const Update = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/offers/${id}`;
+        const url = `https://glacial-caverns-41511.herokuapp.com/offers/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOffer(data));
@@ -26,7 +26,7 @@ const Update = () => {
     }
 
     const handleUpdateUser = e => {
-        const url = `http://localhost:5000/offers/${id}`;
+        const url = `https://glacial-caverns-41511.herokuapp.com/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -44,9 +44,9 @@ function App() {
         <Route path="/addService">
           <AddService></AddService>
         </Route>
-        <Route path="/manageOffers">
+        <PrivateRoute path="/manageOffers">
         <ManageOffer></ManageOffer>
-        </Route>
+        </PrivateRoute>
         <Route path="/login">
           <Login></Login>
         </Route>
