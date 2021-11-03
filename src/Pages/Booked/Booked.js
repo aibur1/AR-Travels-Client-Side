@@ -8,11 +8,12 @@ import './Booked.css';
 const Booked = () => {
     let { serviceId } = useParams();
     const [offer, setOffer] = useState({});
+    
 
-    useEffect(() => {
-        fetch(`https://glacial-caverns-41511.herokuapp.com/${serviceId}`)
-            .then(res => res.json())
-            .then(data => setOffer(data));
+    useEffect( () => {
+        fetch(`https://glacial-caverns-41511.herokuapp.com/offers/${serviceId}`)
+        .then(res => res.json())
+        .then(data => setOffer(data))
     }, [])
 
 
@@ -22,7 +23,7 @@ const Booked = () => {
 
 
 
-        fetch('https://glacial-caverns-41511.herokuapp.com/orders', {
+        fetch('https://glacial-caverns-41511.herokuapp.com', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -32,12 +33,13 @@ const Booked = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.insertedId) {
-                    alert('Ordered proceed successfully')
+                    alert('Booked successfully')
                     reset();
                 }
             })
         console.log(data)
     };
+
     return (
         <div className="text-center d-flex booked">
 
@@ -52,6 +54,7 @@ const Booked = () => {
                             <Card.Img variant="top" src={offer.img} />
                             <Card.Body>
                                 <Card.Title> {offer.name}</Card.Title>
+                                <h4>${offer.price}</h4>
                                 <h6>{offer.description}</h6>
                                 {/* <Link to={`/booking/${_id}`}>
                             <button className="btn btn-primary">Book Now</button>
@@ -70,6 +73,7 @@ const Booked = () => {
 
                     <input defaultValue={user.displayName} {...register("name")} />
                     <input defaultValue={user.email} {...register("email", { required: true })} />
+                    
                     {errors.email && <span className="error">This field is required</span>}
                     <input placeholder="Address" defaultValue="" {...register("address")} />
                     <input placeholder="City" defaultValue="" {...register("city")} />
