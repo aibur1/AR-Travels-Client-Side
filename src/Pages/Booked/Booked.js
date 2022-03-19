@@ -23,7 +23,7 @@ const Booked = () => {
 
 
 
-        fetch('https://glacial-caverns-41511.herokuapp.com', {
+        fetch('https://glacial-caverns-41511.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -73,6 +73,10 @@ const Booked = () => {
 
                     <input defaultValue={user.displayName} {...register("name")} />
                     <input defaultValue={user.email} {...register("email", { required: true })} />
+
+                    <input defaultValue={offer.img} {...register("img", { required: true })} />
+                    
+                    
                     
                     {errors.email && <span className="error">This field is required</span>}
                     <input placeholder="Address" defaultValue="" {...register("address")} />

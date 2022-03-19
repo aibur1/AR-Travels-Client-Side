@@ -1,3 +1,4 @@
+import './App.css';
 import Home from './Pages/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -18,7 +19,7 @@ import Footer from './Pages/Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App color">
       <AuthProvider>
       <Router>
         <Header></Header>
@@ -32,9 +33,9 @@ function App() {
         <Route exact path="/tours">
           <Tours></Tours>
         </Route>
-        <PrivateRoute  path="/myorders">
+        <Route  path="/myorders">
           <MyOrders></MyOrders>
-        </PrivateRoute>
+        </Route>
         <PrivateRoute path="/booking/:serviceId">
           <Booked></Booked>
         </PrivateRoute>
@@ -44,9 +45,9 @@ function App() {
         <Route path="/addService">
           <AddService></AddService>
         </Route>
-        <PrivateRoute path="/manageOffers">
+        <Route path="/manageOffers">
         <ManageOffer></ManageOffer>
-        </PrivateRoute>
+        </Route>
         <Route path="/login">
           <Login></Login>
         </Route>

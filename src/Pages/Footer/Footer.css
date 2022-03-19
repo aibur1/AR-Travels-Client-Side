@@ -3,8 +3,9 @@
 
 } */
 .footer-bg{
-    height: 450px;
-    padding: 130px;
+    color:white;
+    /* height: 500px; */
+    padding: 50px;
     background-color: black;
     /* font-size: 20px; */
 }

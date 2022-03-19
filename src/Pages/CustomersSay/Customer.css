@@ -2,10 +2,12 @@
  .main{
      background-color: rgb(250, 248, 248);
  }
- 
- .review{
+ .text{
+     text-align: justify;
+ }
+ /* .review{
     height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */

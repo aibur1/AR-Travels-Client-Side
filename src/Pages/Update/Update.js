@@ -16,6 +16,7 @@ const Update = () => {
     const handleNameChange = e => {
         const updatedName = e.target.value;
         const updatedInfo = { name: updatedName, price: offer.price };
+       
         setOffer(updatedInfo)
     }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Card } from 'react-bootstrap';
 import useAuth from '../hooks/useAuth';
 
 const MyOrders = () => {
@@ -8,6 +9,7 @@ const MyOrders = () => {
     useEffect(() => {
         fetch(`https://glacial-caverns-41511.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
+            // .then(data => setOrders(data))
             .then(data => setOrders(data))
     }, [])
 
@@ -19,11 +21,26 @@ const MyOrders = () => {
                     key={order._id}>
 
                     <div className="text-center">
-                        {order.name} <br />
+                    <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={order.img} />
+  <Card.Body>
+    <Card.Title>{order.name}</Card.Title>
+    <Card.Title>{order.email}</Card.Title>
+    <Card.Title>{order.phone}</Card.Title>
+    {/* <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text> */}
+    
+  </Card.Body>
+</Card>
+                        {/* {order.name} <br />
                         {order.email} <br />
+
                         {order.address}<br />
-                        {/* {order.city} <br />
-                        {order.phone} */}
+                        {order.city} <br />
+                        {order.phone}
+                        <img src={order.img}/> */}
                     </div>
                     
 
